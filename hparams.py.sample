@@ -1,0 +1,31 @@
+OPENAI_API_KEY=""
+
+MODEL_NAME="gpt-4-0125-preview"
+TOKEN_CAL_MODEL_NAME="gpt-3.5-turbo-0613"
+TEMPERATURE=0
+MAX_TOKENS=4096
+
+PROJECT_ROOT_PATH = "/home/user/your-project-folder"
+INCLUDED_PATHS = [
+    "/",
+]
+EXCLUDED_PATHS = [
+    "/.git/",
+    "/.vscode/",
+    "/venv/*",
+    "*/.ipynb_checkpoints",
+    "*/__pycache__"
+]
+
+PROMPT_HISTORY_LEN = 3
+SYSTEM_CONTENT = "You are a helpful assistant that aids in coding based on the provided file contents."
+CODE_LANGUAGE = "English"
+CHAT_LANGUAGE = "Korean"
+messages_sample = [
+    {"role": "system", "content": SYSTEM_CONTENT},
+    {"role": "system", "name":"root_paths", "content": PROJECT_ROOT_PATH},
+    {"role": "system", "name":"included_paths", "content": str(INCLUDED_PATHS)},
+    {"role": "system", "name":"excluded_paths", "content": str(EXCLUDED_PATHS)},
+    {"role": "system", "name":"code_language", "content": f"Language for writing code and comments: {CODE_LANGUAGE}"},
+    {"role": "system", "name":"chat_language", "content": f"Language for communication with the user: {CHAT_LANGUAGE}"},
+]
